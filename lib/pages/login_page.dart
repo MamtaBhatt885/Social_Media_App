@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:social_media_app/components/my_button.dart';
 import 'package:social_media_app/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
 // text controller
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   LoginPage({super.key});
+
+  //login method
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +54,7 @@ class LoginPage extends StatelessWidget {
                   controller: passwordController),
 
               const SizedBox(height: 10),
+
               // forgot password
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -60,10 +65,34 @@ class LoginPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.secondary),
                   ),
                 ],
-              )
+              ),
+              SizedBox(
+                height: 10,
+              ),
               //sign in button
+              MyButton(text: 'Login', onTap: login),
 
+              SizedBox(
+                height: 10,
+              ),
               //don't have an account? Register here
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Don't have an account? ",
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary),
+                  ),
+                  GestureDetector(
+                    onTap: (){},
+                    child: const Text(
+                      "Register Here",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
